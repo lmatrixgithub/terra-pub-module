@@ -9,14 +9,8 @@ data "aws_ami" "app_ami" {
 
 }
 
-variable "insta_type"{
-    default = {
-        instance_type = "t2.micro"
-    }
-}
-
 resource "aws_instance" "myec2" {
    ami = data.aws_ami.app_ami.id
-   instance_type = var.insta_type
+   instance_type = "t2.micro"
    key_name = "cwdemo"
  }
